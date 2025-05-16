@@ -13,26 +13,19 @@ const fetchQuote = async () => {
  * @param {HTMLDivElement} element 
  */
 export const BreakingBadApp = async ( element ) => {
-
-
-  
-
-          const {quote, author} = await fetchQuote();
     
     element.innerHTML = `
-    <p>${quote}</p></br>
-    <p><small>${author}</small></p></br>
+    <div id='quote'></div>
     <button id='btn-quote'>obtener frase</button>
     `;
 
-
+    const divQuote =  document.querySelector('#quote');
     document.querySelector('#btn-quote').addEventListener('click', async () => {
-          const {quote, author} = await fetchQuote();
-        element.innerHTML = `
-    <p>${quote}</p></br>
-    <p><small>${author}</small></p></br>
-    <button id='btn-quote'>obtener frase</button>
-    `;
+        const {quote, author} = await fetchQuote();
+        divQuote.innerHTML = `
+            <p>${quote}</p></br>
+            <p><small>${author}</small></p></br>
+        `;
     })
 
 
