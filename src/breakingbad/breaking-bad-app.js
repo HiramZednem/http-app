@@ -28,5 +28,6 @@ export const BreakingBadApp = async ( element ) => {
         `;
     })
 
+    document.querySelector('#btn-quote').click();
 
 }
