@@ -1,3 +1,4 @@
+import { userToModel } from "../mappers/user.mapper";
 
 /**
  * 
@@ -10,5 +11,6 @@ export const loadUsersByPage = async( page ) => {
     const res = await fetch(url);
     const data = await res.json();
 
-    console.log(data);
+    const users = data.data.map( user => userToModel(user) );
+    console.log(users);
 } 
