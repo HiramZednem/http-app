@@ -1,5 +1,5 @@
 import './render-table.css'
-import usersStore from '../store/users';
+import usersStore from '../../store/users';
 
 let table;
 
@@ -8,7 +8,7 @@ const createTable = () => {
     const tableHeaders = document.createElement('thead');
     tableHeaders.innerHTML = `
         <tr>
-            <th>#ID</th>
+            <th>ID</th>
             <th>Balance</th>
             <th>FirstName</th>
             <th>LastName</th>
