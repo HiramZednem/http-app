@@ -1,0 +1,56 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Encabezados */
+th {
+    background-color: #ff6f00; /* naranja fuerte */
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Filas del cuerpo */
+td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Hover efecto para filas */
+tr:hover {
+    background-color: #fff3e0; /* naranja muy clarito */
+}
+
+/* Última columna (acciones) */
+td a {
+    text-decoration: none;
+    color: white;
+    background-color: #ff9800;
+    padding: 6px 10px;
+    border-radius: 5px;
+    margin-right: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 0.9em;
+}
+
+td a:hover {
+    background-color: #e65100;
+}
+
+/* Celda de estado activo/inactivo */
+td:nth-child(5) {
+    font-weight: bold;
+    color: #4caf50;
+}
+
+td:nth-child(5):not(:contains("true")) {
+    color: #f44336;
+}
