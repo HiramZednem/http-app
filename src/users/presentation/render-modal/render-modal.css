@@ -1,0 +1,85 @@
+.hide-modal {
+    display: none !important;
+}
+
+/* Fondo oscuro translúcido detrás del modal */
+.modal-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Estilo del formulario */
+.modal-dialog form {
+    background-color: #ffffff;
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Título del modal */
+.modal-dialog form span {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #ff6f00;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Inputs */
+.modal-dialog input[type="text"],
+.modal-dialog input[type="number"] {
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.modal-dialog input:focus {
+    border-color: #ff9800;
+}
+
+/* Checkbox y su label */
+.modal-dialog div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-dialog label {
+    font-weight: 500;
+    color: #333;
+}
+
+/* Botón Guardar */
+.modal-dialog button[type="submit"] {
+    background-color: #ff9800;
+    color: white;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal-dialog button:hover {
+    background-color: #e65100;
+    transform: translateY(-1px);
+}
