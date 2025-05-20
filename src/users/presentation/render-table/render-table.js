@@ -46,13 +46,25 @@ export const renderTable = ( element ) => {
                 <td>${user.lastName}</td>
                 <td>${user.isActive}</td>
                 <td>
-                    <a href="#/" data-id="${ user.id }">select</a> 
-                    <a href="#/" data-id="${ user.id }">delete</a> 
+                    <a href="#/" class="select" data-id="${ user.id }">select</a> 
+                    <a href="#/" class="delete" data-id="${ user.id }">delete</a> 
                 </td> 
             </tr>
         `
     });
 
     table.querySelector('tbody').innerHTML = tableHTML;
+
+    document.querySelectorAll('.select').forEach((btnSelect => {
+        btnSelect.addEventListener('click', (event) => {
+            console.log(event.target.getAttribute('data-id'))
+        })
+    }))
+
+    document.querySelectorAll('.delete').forEach((btnSelect => {
+        btnSelect.addEventListener('click', (event) => {
+            console.log(event.target.getAttribute('data-id'))
+        })
+    }))
 
 }

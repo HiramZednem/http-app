@@ -1,24 +1,36 @@
 import modalHTML from './render-modal.html?raw';
 import './render-modal.css';
+import { saveUser } from '../../use-cases/save-user';
+import { getUserById } from '../../use-cases/get-user-by-id';
 
 
 let modal;
 let form;
 
-export const showModal = () => {
+export const showModal = async( id ) => {
     modal?.classList.remove('hide-modal');
+
+    if(!id) return;
+
+    const user = await getUserById(id);
 }
 
 export const hideModal = () => {
     modal?.classList.add('hide-modal');
     form?.reset()
 }
+
+const setFormValues = ({name, lastname, balance, isActive }) => {
+
+  // pendiente 
+}
+
 /**
  * 
  * @param {HTMLDivElement} element 
  * @returns 
  */
-export const renderModal = ( element ) => {
+export const renderModal = ( element, callback ) => {
     if (modal) return;
 
     modal = document.createElement('div');
@@ -51,8 +63,8 @@ export const renderModal = ( element ) => {
             data[key] = value;
         }
         (data.isActive) ? data.isActive : data['isActive'] = false;
-        console.log(data);
 
+        callback(data);
         hideModal();
 
     })

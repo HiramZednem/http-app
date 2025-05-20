@@ -14,6 +14,5 @@ export const loadUsersByPage = async( page ) => {
     const res = await fetch(url);
     const data = await res.json();
 
-    if (page > data.last) return [];
-    return data.data.map( userToModel );
+    return data.map( userToModel );
 } 
