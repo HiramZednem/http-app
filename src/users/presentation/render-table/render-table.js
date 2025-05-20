@@ -38,8 +38,6 @@ export const renderTable = ( element ) => {
     let tableHTML = ``
 
     users.forEach( user => {
-        console.log(user[0])
-        
         tableHTML = tableHTML + `
             <tr>
                 <td>${user.id}</td>
