@@ -6,13 +6,14 @@ import { getUserById } from '../../use-cases/get-user-by-id';
 
 let modal;
 let form;
-
+let loadedUser;
 export const showModal = async( id ) => {
     modal?.classList.remove('hide-modal');
 
     if(!id) return;
 
     const user = await getUserById(id);
+    loadedUser = user;
     setFormValues(user)
 }
 
@@ -21,7 +22,7 @@ export const hideModal = () => {
     form?.reset()
 }
 
-const setFormValues = ({firstName, lastName, balance, isActive }) => {
+const setFormValues = ({id, firstName, lastName, balance, isActive }) => {
     form.querySelector('[name="firstName"]').value = firstName;
     form.querySelector('[name="lastName"]').value = lastName;
     form.querySelector('[name="balance"]').value = balance;
@@ -51,7 +52,7 @@ export const renderModal = ( element, callback ) => {
         e.preventDefault();
         const formData = new FormData(form);
 
-        const data = {};
+        const data = {...loadedUser};
         for(const [key, value] of formData) {
             if( key === 'balance' ) {
                 data[key] = Number(value);

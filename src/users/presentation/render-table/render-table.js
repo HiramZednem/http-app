@@ -63,8 +63,8 @@ export const renderTable = ( element ) => {
         })
     }))
 
-    document.querySelectorAll('.delete').forEach((btnSelect => {
-        undefined.addEventListener('click', (event) => {
+    document.querySelectorAll('.delete').forEach((btnDelete => {
+        btnDelete.addEventListener('click', (event) => {
             console.log(event.target.getAttribute('data-id'))
         })
     }))

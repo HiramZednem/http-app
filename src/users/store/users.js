@@ -22,8 +22,26 @@ const loadPreviousPage = async() => {
     state.users = users;
 }
 
-const onUserChanged = () => {
-    throw new Error('not implemented');
+const onUserChanged = (updatedUser) => {
+    let userChanged = false;
+
+    state.users = state.users.map( (user) => {
+        if  (user.id == updatedUser.id) {
+            userChanged = true;
+            return updatedUser;
+        }
+        return user;
+    });
+
+
+    // si la longitud de los users es menos de 10 (osea que cabe en el grid)
+    // y no es una actualizacion, entonces agregalo asi a lo maldito al state
+    // pq debe aparecer, si no xd, pues aparecera cuando el user cambie de pagina
+    if ( state.users.length < 10 && !userChanged) {
+        state.users.push(updatedUser)
+    }
+    
+
 }
 
 const reloadPage = () => {
