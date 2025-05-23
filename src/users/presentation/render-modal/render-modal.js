@@ -13,6 +13,7 @@ export const showModal = async( id ) => {
     if(!id) return;
 
     const user = await getUserById(id);
+    setFormValues(user)
 }
 
 export const hideModal = () => {
@@ -20,9 +21,11 @@ export const hideModal = () => {
     form?.reset()
 }
 
-const setFormValues = ({name, lastname, balance, isActive }) => {
-
-  // pendiente 
+const setFormValues = ({firstName, lastName, balance, isActive }) => {
+    form.querySelector('[name="firstName"]').value = firstName;
+    form.querySelector('[name="lastName"]').value = lastName;
+    form.querySelector('[name="balance"]').value = balance;
+    form.querySelector('[name="isActive"]').value = isActive;
 }
 
 /**

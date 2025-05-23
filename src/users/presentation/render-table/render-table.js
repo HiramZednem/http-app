@@ -1,5 +1,6 @@
 import './render-table.css'
 import usersStore from '../../store/users';
+import { showModal } from '../render-modal/render-modal'
 
 let table;
 
@@ -57,12 +58,13 @@ export const renderTable = ( element ) => {
 
     document.querySelectorAll('.select').forEach((btnSelect => {
         btnSelect.addEventListener('click', (event) => {
-            console.log(event.target.getAttribute('data-id'))
+            const id = event.target.getAttribute('data-id')
+            showModal( id );
         })
     }))
 
     document.querySelectorAll('.delete').forEach((btnSelect => {
-        btnSelect.addEventListener('click', (event) => {
+        undefined.addEventListener('click', (event) => {
             console.log(event.target.getAttribute('data-id'))
         })
     }))
