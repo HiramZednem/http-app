@@ -8,6 +8,7 @@ let modal;
 let form;
 let loadedUser;
 export const showModal = async( id ) => {
+    loadedUser = {}
     modal?.classList.remove('hide-modal');
 
     if(!id) return;
@@ -53,6 +54,7 @@ export const renderModal = ( element, callback ) => {
         const formData = new FormData(form);
 
         const data = {...loadedUser};
+        data['isActive'] = false;
         for(const [key, value] of formData) {
             if( key === 'balance' ) {
                 data[key] = Number(value);
@@ -66,7 +68,6 @@ export const renderModal = ( element, callback ) => {
 
             data[key] = value;
         }
-        (data.isActive) ? data.isActive : data['isActive'] = false;
 
         callback(data);
         hideModal();
